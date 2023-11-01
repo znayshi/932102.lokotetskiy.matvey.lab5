@@ -12,8 +12,10 @@ openPopup.forEach((button) => {
     });
 });
 
-document.addEventListener('click', (e) => {
-    if (!popups.some(popup => popup.contains(e.target))) {
-        popups.forEach(popup => popup.classList.remove('active'));
-    }
+popups.forEach((popup) => {
+    popup.addEventListener('click', (e) => {
+        if (e.target === popup) {
+            popup.classList.remove('active');
+        }
+    });
 });
